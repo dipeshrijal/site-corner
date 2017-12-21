@@ -17,7 +17,7 @@
           <p class="card-text">
             Link: <a [href]="source.url"
                      target="_blank"
-          >{{source.url}}</a>
+          >{{source.url | summerize}}</a>
           </p>
 
           <app-nlp-likes [source]="source"></app-nlp-likes>

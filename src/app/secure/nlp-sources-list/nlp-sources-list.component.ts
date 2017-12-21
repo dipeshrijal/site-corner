@@ -13,6 +13,8 @@ export class NlpSourcesListComponent implements OnInit {
   corner;
   comments;
   id;
+  likes;
+  dislikes;
 
   constructor(private sourceService: SourceService,
               private route: ActivatedRoute) {
@@ -26,8 +28,32 @@ export class NlpSourcesListComponent implements OnInit {
             this.id = params['id'];
             this.corner = source;
             this.comments = source['comment'];
+            this.likes = this.corner.likes;
+            this.dislikes = this.corner.dislikes;
           }
         );
+      }
+    );
+  }
+
+  like(id) {
+    this.likes++;
+    const like = {
+      'likes': this.likes
+    };
+    this.sourceService.update(id, like).subscribe(
+      source => {
+      }
+    );
+  }
+
+  dislike(id) {
+    this.dislikes++;
+    const dislike = {
+      'dislikes': this.dislikes
+    };
+    this.sourceService.update(id, dislike).subscribe(
+      source => {
       }
     );
   }

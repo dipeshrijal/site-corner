@@ -28,7 +28,6 @@ export class NlpLikesComponent implements OnInit {
     };
     this.sourceService.update(id, like).subscribe(
       source => {
-        console.log(source);
       }
     );
   }
@@ -40,7 +39,6 @@ export class NlpLikesComponent implements OnInit {
     };
     this.sourceService.update(id, dislike).subscribe(
       source => {
-        console.log(source);
       }
     );
   }

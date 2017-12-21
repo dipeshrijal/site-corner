@@ -13,7 +13,7 @@
             <div class="title h5">
               <a [href]="corner?.url"
                  target="_blank"
-              >{{corner?.url}}</a>
+              >{{corner?.url | summerize}}</a>
             </div>
           </div>
         </div>
@@ -22,14 +22,21 @@
           <div class="stats">
             <a href="javascript:void(0)"
                class="btn btn-default stat-item"
+               (click)="like(corner?._id)"
             >
-              <i class="fa fa-thumbs-o-up icon"></i>{{corner?.likes}}
+              <i class="fa fa-thumbs-o-up icon"></i>{{likes}}
             </a>
             <a href="javascript:void(0)"
+               (click)="dislike(corner?._id)"
                class="btn btn-default stat-item"
             >
-              <i class="fa fa-thumbs-o-down icon"></i>{{corner?.dislikes}}
+              <i class="fa fa-thumbs-o-down icon"></i>{{dislikes}}
             </a>
+            <a href="javascript:void(0)"
+               class="card-link"
+            ><i class="fa fa-comment"
+                aria-hidden="true"
+            ></i> Comments</a> ({{comments?.length}})
           </div>
         </div>
       </div>

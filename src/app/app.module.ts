@@ -20,6 +20,7 @@ import {NlpLikesComponent} from './secure/nlp-likes/nlp-likes.component';
 import {NlpCommentComponent} from './secure/nlp-comment/nlp-comment.component';
 import {NlpSourcesListComponent} from './secure/nlp-sources-list/nlp-sources-list.component';
 import {SourceService} from './secure/nlp-sources/SourceService';
+import {SummerizePipe} from './secure/nlp-sources/summerize.pipe';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {SourceService} from './secure/nlp-sources/SourceService';
     NlpSourcesComponent,
     NlpLikesComponent,
     NlpSourcesListComponent,
-    NlpCommentComponent
+    NlpCommentComponent,
+    SummerizePipe
   ],
   imports: [
     BrowserModule,
