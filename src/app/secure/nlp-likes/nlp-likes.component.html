@@ -1,13 +1,13 @@
 <a href="javascript:void(0)"
-   (click)="like()"
-   class="card-link"
-><i class="fa fa-thumbs-o-up"
+   (click)="like(source._id)"
+   class="card-link stat-item"
+><i class="fa fa-thumbs-up"
     aria-hidden="true"
 ></i></a> ({{likes}})
 
 <a href="javascript:void(0)"
-   (click)="dislike()"
-   class="card-link"
-><i class="fa fa-thumbs-o-down"
+   (click)="dislike(source._id)"
+   class="card-link stat-item"
+><i class="fa fa-thumbs-down"
     aria-hidden="true"
 ></i></a> ({{dislikes}})

@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {SourceService} from './SourceService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-nlp-sources',
@@ -14,18 +15,21 @@ export class NlpSourcesComponent implements OnInit {
   message;
 
   sources;
-  commentsCount;
 
-  constructor(private source: SourceService) {
+  constructor(private source: SourceService,
+              private router: Router) {
   }
 
   ngOnInit() {
     this.source.getSource().subscribe(
       sources => {
-        console.log(sources);
         this.sources = sources;
       }
     );
+  }
+
+  details(id) {
+    this.router.navigate(['details', id]).catch();
   }
 
   addComment() {

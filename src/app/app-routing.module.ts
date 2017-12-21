@@ -7,7 +7,7 @@ import {SecureComponent} from './secure/secure/secure.component';
 import {DashboardComponent} from './admin/dashboard/dashboard.component';
 import {NlpSourcesComponent} from './secure/nlp-sources/nlp-sources.component';
 import {AuthGuard} from './public/nlp-login-form/auth.guard';
-import {NlpSourcesListComponent} from './secure/nlp-sources/nlp-sources-list/nlp-sources-list.component';
+import {NlpSourcesListComponent} from './secure/nlp-sources-list/nlp-sources-list.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {path: '', component: NlpSourcesComponent},
-      {path: 'details', component: NlpSourcesListComponent}
+      {path: 'details/:id', component: NlpSourcesListComponent}
     ]
   },
   {

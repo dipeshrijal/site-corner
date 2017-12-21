@@ -8,8 +8,9 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authReq = null;
     if (localStorage.getItem('currentUser')) {
-      const token = JSON.parse(localStorage.getItem('currentUser'))['token'];
-      authReq = req.clone({setHeaders: {'x-access-token': token}});
+      // const token = JSON.parse(localStorage.getItem('currentUser'))['token'];
+      // authReq = req.clone({setHeaders: {'x-access-token': token}});
+      authReq = req.clone({setHeaders: {}});
     } else {
       authReq = req.clone({setHeaders: {}});
     }

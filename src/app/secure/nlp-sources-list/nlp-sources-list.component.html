@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12"
+         style="margin-top: 20px;"
+    >
+      <div class="panel panel-white post panel-shadow">
+        <div class="post-heading">
+          <div class="float-left meta">
+            <div class="title h5">
+              <b>{{corner?.title}}</b>
+            </div>
+
+            <div class="title h5">
+              <a [href]="corner?.url"
+                 target="_blank"
+              >{{corner?.url}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="post-description">
+          <p>{{corner?.description}}</p>
+          <div class="stats">
+            <a href="javascript:void(0)"
+               class="btn btn-default stat-item"
+            >
+              <i class="fa fa-thumbs-o-up icon"></i>{{corner?.likes}}
+            </a>
+            <a href="javascript:void(0)"
+               class="btn btn-default stat-item"
+            >
+              <i class="fa fa-thumbs-o-down icon"></i>{{corner?.dislikes}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <!-- Contenedor Principal -->
+    <div class="comments-container">
+
+      {{id}}
+
+      <app-nlp-comment [user]="id"></app-nlp-comment>
+
+      <ul id="comments-list"
+          class="comments-list"
+      >
+        <li *ngFor="let comment of comments">
+          <div class="comment-main-level">
+            <!-- Avatar -->
+            <!-- Contenedor del Comentario -->
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name">Agustin Ortiz</h6>
+                <span>{{comment.date | date}}</span>
+                <i class="fa fa-reply"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+              <div class="comment-content">
+                {{comment.comment}}
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

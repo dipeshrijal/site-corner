@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {SourceService} from '../nlp-sources/SourceService';
 
 @Component({
   selector: 'app-nlp-likes',
@@ -7,12 +8,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class NlpLikesComponent implements OnInit {
 
-  @Input('source') source;
+  @Input() source;
 
   likes;
   dislikes;
 
-  constructor() {
+  constructor(private sourceService: SourceService) {
   }
 
   ngOnInit() {
@@ -20,12 +21,28 @@ export class NlpLikesComponent implements OnInit {
     this.dislikes = this.source.dislikes;
   }
 
-  like() {
+  like(id) {
     this.likes++;
+    const like = {
+      'likes': this.likes
+    };
+    this.sourceService.update(id, like).subscribe(
+      source => {
+        console.log(source);
+      }
+    );
   }
 
-  dislike() {
+  dislike(id) {
     this.dislikes++;
+    const dislike = {
+      'dislikes': this.dislikes
+    };
+    this.sourceService.update(id, dislike).subscribe(
+      source => {
+        console.log(source);
+      }
+    );
   }
 
 }

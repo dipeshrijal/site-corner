@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const methodOverride = require('method-override');
+// const methodOverride = require('method-override');
 
 const config = require('./server/config');
 const app = express();
@@ -15,7 +15,7 @@ require('./server/db')(mongoose, config);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': false}));
-app.use(methodOverride('X-HTTP-Method-Override'));
+// app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(router);
 
 

@@ -9,7 +9,8 @@
            style="width: 20rem;"
       >
         <div class="card-body">
-          <a routerLink="details">
+          <!--<a [routerLink]="['/details', source._id]">-->
+          <a (click)="details(source._id)" href="javascript:void(0)">
             <h4 class="card-title">{{source.title}}</h4>
             <p class="card-text">{{source.description}}</p>
           </a>
@@ -21,8 +22,7 @@
 
           <app-nlp-likes [source]="source"></app-nlp-likes>
 
-
-          <a href="#"
+          <a [routerLink]="['/details', source._id]"
              class="card-link"
           ><i class="fa fa-comment"
               aria-hidden="true"
