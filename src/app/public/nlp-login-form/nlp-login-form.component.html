@@ -1,25 +1,41 @@
 <form (submit)="loginUser()"
       #f="ngForm"
 >
+  <div class="alert alert-danger" role="alert" *ngIf="message">
+    {{message}}
+  </div>
   <div class="input">
     <label for="username">Username</label>
     <input id="username"
            type="text"
+           required
            ngModel
+           #username="ngModel"
            name="username"
     >
+    <div class="alert alert-danger"
+         *ngIf="username.touched && !username.valid">
+      Username is required
+    </div>
   </div>
   <div class="input">
     <label for="password">Password</label>
     <input id="password"
            type="password"
+           required
+           #password="ngModel"
            ngModel
            name="password"
     >
+    <div class="alert alert-danger"
+         *ngIf="password.touched && !password.valid">
+      Password is required
+    </div>
   </div>
   <div class="input">
     <button class="btn btn-lg btn-block btn-info pull-right"
             type="submit"
+            [disabled]="f.invalid"
     >Login
     </button>
   </div>

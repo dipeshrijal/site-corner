@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px;">
+      <div class="panel panel-white post panel-shadow">
+        <div class="post-heading">
+          <div class="pull-left image">
+            <img src="http://bootdey.com/img/Content/user_1.jpg"
+                 class="img-circle avatar"
+                 alt="user profile image"
+            >
+          </div>
+          <div class="float-left meta">
+            <div class="title h5">
+              <a href="#"><b>Ryan Haywood</b></a>
+              made a post.
+            </div>
+            <h6 class="text-muted time">1 minute ago</h6>
+          </div>
+        </div>
+        <div class="post-description">
+          <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js
+            framework. Codes for developers and web designers</p>
+          <div class="stats">
+            <a href="#"
+               class="btn btn-default stat-item"
+            >
+              <i class="fa fa-thumbs-up icon"></i>2
+            </a>
+            <a href="#"
+               class="btn btn-default stat-item"
+            >
+              <i class="fa fa-thumbs-down icon"></i>12
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <!-- Contenedor Principal -->
+    <div class="comments-container">
+
+      <ul id="comments-list" class="comments-list">
+        <li>
+          <div class="comment-main-level">
+            <!-- Avatar -->
+            <!-- Contenedor del Comentario -->
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+                <span>hace 20 minutos</span>
+                <i class="fa fa-reply"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+              <div class="comment-content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="comment-main-level">
+            <!-- Avatar -->
+            <!-- Contenedor del Comentario -->
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
+                <span>hace 10 minutos</span>
+                <i class="fa fa-reply"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+              <div class="comment-content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<form #commentForm="ngForm"
+      (submit)="addComment()"
+>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea class="form-control"
+              #comment="ngModel"
+              ngModel
+              name="comment"
+              id="comment"
+              required
+              rows="3"
+    ></textarea>
+    <div class="alert alert-danger"
+         *ngIf="comment.touched && !comment.valid"
+    >
+      Comment cannot be blank.
+    </div>
+  </div>
+  <button type="submit"
+          [disabled]="commentForm.invalid"
+          class="btn btn-primary btn-sm float-right"
+  >Comment
+  </button>
+</form>

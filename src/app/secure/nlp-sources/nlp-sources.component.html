@@ -1,3 +1,35 @@
-<p>
-  nlp-sources works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4"
+         *ngFor="let source of sources"
+         style="margin-top: 20px"
+    >
+
+      <div class="card"
+           style="width: 20rem;"
+      >
+        <div class="card-body">
+          <a routerLink="details">
+            <h4 class="card-title">{{source.title}}</h4>
+            <p class="card-text">{{source.description}}</p>
+          </a>
+          <p class="card-text">
+            Link: <a [href]="source.url"
+                     target="_blank"
+          >{{source.url}}</a>
+          </p>
+
+          <app-nlp-likes [source]="source"></app-nlp-likes>
+
+
+          <a href="#"
+             class="card-link"
+          ><i class="fa fa-comment"
+              aria-hidden="true"
+          ></i> Comments</a> ({{source?.comment.length}})
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

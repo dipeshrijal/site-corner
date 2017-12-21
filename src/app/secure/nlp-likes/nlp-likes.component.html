@@ -1,13 +1,13 @@
-  <div class="counter">
-      <button (click)="decrement()" >
-      DisLike
-    </button>
-    
-    <button (click)="increment()">
-      Like
-    </button>
-    
-    <input type="text" [value]="count" readonly> 
+<a href="javascript:void(0)"
+   (click)="like()"
+   class="card-link"
+><i class="fa fa-thumbs-o-up"
+    aria-hidden="true"
+></i></a> ({{likes}})
 
-  </div>
-
+<a href="javascript:void(0)"
+   (click)="dislike()"
+   class="card-link"
+><i class="fa fa-thumbs-o-down"
+    aria-hidden="true"
+></i></a> ({{dislikes}})

@@ -31,8 +31,7 @@ exports.authenticate = function (req, res) {
         user: user
       };
       let token = jwt.sign(
-        payload, req.app.get('secret'),
-        {expiresIn: 60 * 60 * 24}
+        payload, req.app.get('secret')
       );
       // let decoded = jwt.decode(token);
 

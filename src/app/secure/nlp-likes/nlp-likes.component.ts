@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-nlp-likes',
@@ -7,19 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NlpLikesComponent implements OnInit {
 
-  count: number = 0;
+  @Input('source') source;
 
-  constructor() { }
+  likes;
+  dislikes;
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.likes = this.source.likes;
+    this.dislikes = this.source.dislikes;
   }
 
-
-  increment() {
-    this.count++;
+  like() {
+    this.likes++;
   }
-  decrement() {
-    this.count--;
+
+  dislike() {
+    this.dislikes++;
   }
 
 }

@@ -5,6 +5,9 @@ import {PublicComponent} from './public/public/public.component';
 import {NlpLoginFormComponent} from './public/nlp-login-form/nlp-login-form.component';
 import {SecureComponent} from './secure/secure/secure.component';
 import {DashboardComponent} from './admin/dashboard/dashboard.component';
+import {NlpSourcesComponent} from './secure/nlp-sources/nlp-sources.component';
+import {AuthGuard} from './public/nlp-login-form/auth.guard';
+import {NlpSourcesListComponent} from './secure/nlp-sources/nlp-sources-list/nlp-sources-list.component';
 
 const routes: Routes = [
   {
@@ -12,7 +15,13 @@ const routes: Routes = [
     data: {
       title: 'Secure Views'
     },
-    component: SecureComponent
+    component: SecureComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [
+      {path: '', component: NlpSourcesComponent},
+      {path: 'details', component: NlpSourcesListComponent}
+    ]
   },
   {
     path: '',
@@ -21,7 +30,7 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        component: NlpLoginFormComponent
+        component: NlpLoginFormComponent,
       }
     ]
   },
