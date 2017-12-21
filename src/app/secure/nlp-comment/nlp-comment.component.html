@@ -1,27 +1,57 @@
-<div class="col-12">
-  <form #commentForm="ngForm"
-        (submit)="addComment()"
-  >
-    <div class="form-group">
-      <label for="comment">Comment</label>
-      <textarea class="form-control"
-                #comment="ngModel"
-                ngModel
-                name="comment"
-                id="comment"
-                required
-                rows="3"
-      ></textarea>
-      <div class="alert alert-danger"
-           *ngIf="comment.touched && !comment.valid"
-      >
-        Comment cannot be blank.
+<div class="container">
+  <div class="row">
+    <!-- Contenedor Principal -->
+    <div class="comments-container">
+
+      <div class="col-12">
+        <form #commentForm="ngForm"
+              (submit)="addComment()"
+        >
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea class="form-control"
+                      #comment="ngModel"
+                      ngModel
+                      name="comment"
+                      id="comment"
+                      required
+                      rows="3"
+            ></textarea>
+            <div class="alert alert-danger"
+                 *ngIf="comment.touched && !comment.valid"
+            >
+              Comment cannot be blank.
+            </div>
+          </div>
+          <button type="submit"
+                  [disabled]="commentForm.invalid"
+                  class="btn btn-primary btn-sm float-right"
+          >Comment
+          </button>
+        </form>
       </div>
+
+      <ul id="comments-list"
+          class="comments-list"
+      >
+        <li *ngFor="let comment of comments">
+          <div class="comment-main-level">
+            <!-- Avatar -->
+            <!-- Contenedor del Comentario -->
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name">Agustin Ortiz</h6>
+                <span>{{comment.date | date}}</span>
+                <i class="fa fa-reply"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+              <div class="comment-content">
+                {{comment.comment}}
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-    <button type="submit"
-            [disabled]="commentForm.invalid"
-            class="btn btn-primary btn-sm float-right"
-    >Comment
-    </button>
-  </form>
+  </div>
 </div>

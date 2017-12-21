@@ -11,6 +11,8 @@ export class NlpCommentComponent implements OnInit {
 
   @ViewChild('commentForm') form: NgForm;
 
+  @Input() comments;
+
   constructor(private sourceService: SourceService) {
   }
 
@@ -29,7 +31,7 @@ export class NlpCommentComponent implements OnInit {
     this.sourceService
       .updateComment(localStorage.getItem('source_id'), commentData)
       .subscribe(
-        source => console.log(source)
+        source => this.comments.push(commentData)
       );
   }
 }

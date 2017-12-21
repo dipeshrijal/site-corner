@@ -37,35 +37,4 @@
   </div>
 </div>
 
-
-<div class="container">
-  <div class="row">
-    <!-- Contenedor Principal -->
-    <div class="comments-container">
-
-      <app-nlp-comment></app-nlp-comment>
-
-      <ul id="comments-list"
-          class="comments-list"
-      >
-        <li *ngFor="let comment of comments">
-          <div class="comment-main-level">
-            <!-- Avatar -->
-            <!-- Contenedor del Comentario -->
-            <div class="comment-box">
-              <div class="comment-head">
-                <h6 class="comment-name">Agustin Ortiz</h6>
-                <span>{{comment.date | date}}</span>
-                <i class="fa fa-reply"></i>
-                <i class="fa fa-heart"></i>
-              </div>
-              <div class="comment-content">
-                {{comment.comment}}
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+<app-nlp-comment [comments]="comments"></app-nlp-comment>
