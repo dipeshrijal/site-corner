@@ -20,6 +20,11 @@ export class SourceService implements OnInit {
     return this.http.put(`${this.baseUrl}/sources/${id}`, likes);
   }
 
+  updateComment(id, commentData) {
+    console.log(id);
+    return this.http.put(`${this.baseUrl}/sources/comments/${id}`, commentData);
+  }
+
   find(id) {
     return this.http.get(`${this.baseUrl}/sources/${id}`);
   }

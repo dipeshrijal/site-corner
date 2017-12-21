@@ -30,6 +30,7 @@ export class NlpSourcesComponent implements OnInit {
 
   details(id) {
     this.router.navigate(['details', id]).catch();
+    localStorage.setItem('source_id', id);
   }
 
   addComment() {

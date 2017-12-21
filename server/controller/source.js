@@ -34,6 +34,19 @@ exports.update = function (req, res) {
   });
 };
 
+exports.updateComments = function (req, res) {
+  Source.findOneAndUpdate({_id: req.params.id}, {$push: {comment: req.body}}, {
+    safe  : true,
+    upsert: true
+  }, function (err, result) {
+    if (! err) {
+      return res.json(result);
+    } else {
+      return res.send(err);
+    }
+  });
+};
+
 exports.delete = function (req, res) {
   Source.remove({_id: req.params.id}, function (err, result) {
     if (! err) {

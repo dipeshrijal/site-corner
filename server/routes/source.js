@@ -5,4 +5,5 @@ module.exports = function (router) {
   router.post('/api/sources', Source.create);
   router.put('/api/sources/:id', Source.update);
   router.get('/api/sources/:id', Source.findOne);
+  router.put('/api/sources/comments/:id', Source.updateComments);
 };

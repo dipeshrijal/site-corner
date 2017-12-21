@@ -11,19 +11,25 @@ export class NlpCommentComponent implements OnInit {
 
   @ViewChild('commentForm') form: NgForm;
 
-  @Input() user;
-
   constructor(private sourceService: SourceService) {
   }
 
   ngOnInit() {
-    console.log(this.user);
   }
 
   addComment() {
     if (this.form.invalid) {
       return;
     }
-    // this.sourceService.update();
+
+    const commentData = {
+      user: JSON.parse(localStorage.getItem('currentUser'))['id'],
+      comment: this.form.value['comment'],
+    };
+    this.sourceService
+      .updateComment(localStorage.getItem('source_id'), commentData)
+      .subscribe(
+        source => console.log(source)
+      );
   }
 }

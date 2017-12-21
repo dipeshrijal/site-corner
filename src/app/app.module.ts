@@ -15,6 +15,11 @@ import {SecureComponent} from './secure/secure/secure.component';
 import {SecureModule} from './secure/secure.module';
 import {AuthGuard} from './public/nlp-login-form/auth.guard';
 import {AuthInterceptor} from './public/nlp-login-form/auth.interceptor';
+import {NlpSourcesComponent} from './secure/nlp-sources/nlp-sources.component';
+import {NlpLikesComponent} from './secure/nlp-likes/nlp-likes.component';
+import {NlpCommentComponent} from './secure/nlp-comment/nlp-comment.component';
+import {NlpSourcesListComponent} from './secure/nlp-sources-list/nlp-sources-list.component';
+import {SourceService} from './secure/nlp-sources/SourceService';
 
 
 @NgModule({
@@ -23,6 +28,10 @@ import {AuthInterceptor} from './public/nlp-login-form/auth.interceptor';
     AdminComponent,
     PublicComponent,
     SecureComponent,
+    NlpSourcesComponent,
+    NlpLikesComponent,
+    NlpSourcesListComponent,
+    NlpCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -30,11 +39,11 @@ import {AuthInterceptor} from './public/nlp-login-form/auth.interceptor';
     HttpClientModule,
     AdminModule,
     PublicModule,
-    SecureModule,
     RoutingModule
   ],
   providers: [
     AuthService,
+    SourceService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
