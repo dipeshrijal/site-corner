@@ -15,7 +15,6 @@ require('./server/db')(mongoose, config);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': false}));
-// app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(router);
 
 
